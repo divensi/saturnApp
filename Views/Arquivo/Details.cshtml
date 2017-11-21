@@ -1,0 +1,60 @@
+@model saturnUpload.Arquivo
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Arquivo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Endereco)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Hash)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Hash)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tamanho)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tamanho)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tipo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Extensao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Extensao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pai)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pai.Discriminator)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

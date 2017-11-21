@@ -1,0 +1,58 @@
+@model IEnumerable<saturnUpload.Diretorio>
+@using saturnUpload
+
+@{
+    ViewData["Title"] = "Index";
+    var currentDir = (Diretorio)ViewData["currentDir"];
+    var arquivos = (List<Arquivo>)ViewData["arquivos"];
+    var diretorios = (List<Diretorio>)ViewData["diretorios"];
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create" asp-route-id="@currentDir.Id">Novo Diretorio</a>  |
+    <a asp-controller="Arquivo" asp-action="Create" asp-route-id="@currentDir.Id">Novo Arquivo</a>  |
+    @if (currentDir.PaiId != null) {    
+        <a asp-action="Index" asp-route-id="@currentDir.PaiId">Pai</a>
+    } else {
+        <a aria-disabled="true">Pai</a>        
+    }
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in diretorios) {
+            <tr>
+                <td>
+                    <a asp-action="Index" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Nome)</a>
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+
+        @foreach (var item in arquivos) {
+            <tr>
+                <td>
+                    <a asp-controller="Arquivo" asp-action="Download" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Nome)</a>
+                </td>
+                <td>
+                    <a asp-controller="Arquivo" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-controller="Arquivo" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-controller="Arquivo" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
