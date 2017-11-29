@@ -99,3 +99,12 @@ h1 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
+
+.icon {
+  max-height: 70px;
+  padding: 10px;
+}
+.nome {
+  white-space:nowrap;
+  overflow: hidden;
+}

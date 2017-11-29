@@ -15,25 +15,52 @@
             
             <div>
                 <p>Selecionee:</p>
-                <input type="file" name="arquivos" />
+                <input type="file" name="arquivos" id="arquivos"/>
             </div>
             <input type="hidden" value="@ViewBag.PaiId" nome="id" />
             <div>
-                <input type="submit" value="Upload" />
+                <input type="button" 
+                    id="upload" 
+                    value="Upload Selected Files" />
             </div>
 
-
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+            </div> -->
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-controller="Diretorio" asp-action="Index" 
+        asp-route-id="@ViewBag.PaiId">Back to List</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        $(document).ready(function () {
+            $("#upload").click(function (evt) {
+                var fileUpload = $("#arquivos").get(0);
+                var files = fileUpload.files;
+                var data = new FormData();
+                for (var i = 0; i < files.length ; i++) {
+                    data.append(files[i].name, files[i]);
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/Arquivo/CreateAjax/@ViewBag.PaiId",
+                    contentType: false,
+                    processData: false,
+                    data: data,
+                    success: function (message) {
+                        alert(message);
+                    },
+                    error: function () {
+                        alert("There was error uploading files!");
+                    }
+                });
+            });
+        });
+    </script>
 }

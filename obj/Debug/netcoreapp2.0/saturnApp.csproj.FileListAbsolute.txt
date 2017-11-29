@@ -10,3 +10,15 @@
 /home/divensi/Project/ASPNET/saturnApp/obj/Debug/netcoreapp2.0/saturnApp.AssemblyInfo.cs
 /home/divensi/Project/ASPNET/saturnApp/obj/Debug/netcoreapp2.0/saturnApp.dll
 /home/divensi/Project/ASPNET/saturnApp/obj/Debug/netcoreapp2.0/saturnApp.pdb
+/home/divensi/Projects/ASPNET/saturnApp/bin/Debug/netcoreapp2.0/app.db
+/home/divensi/Projects/ASPNET/saturnApp/bin/Debug/netcoreapp2.0/saturnApp.deps.json
+/home/divensi/Projects/ASPNET/saturnApp/bin/Debug/netcoreapp2.0/saturnApp.runtimeconfig.json
+/home/divensi/Projects/ASPNET/saturnApp/bin/Debug/netcoreapp2.0/saturnApp.runtimeconfig.dev.json
+/home/divensi/Projects/ASPNET/saturnApp/bin/Debug/netcoreapp2.0/saturnApp.dll
+/home/divensi/Projects/ASPNET/saturnApp/bin/Debug/netcoreapp2.0/saturnApp.pdb
+/home/divensi/Projects/ASPNET/saturnApp/obj/Debug/netcoreapp2.0/saturnApp.csproj.CoreCompileInputs.cache
+/home/divensi/Projects/ASPNET/saturnApp/obj/Debug/netcoreapp2.0/UserSecretsAssemblyInfo.cs
+/home/divensi/Projects/ASPNET/saturnApp/obj/Debug/netcoreapp2.0/saturnApp.AssemblyInfoInputs.cache
+/home/divensi/Projects/ASPNET/saturnApp/obj/Debug/netcoreapp2.0/saturnApp.AssemblyInfo.cs
+/home/divensi/Projects/ASPNET/saturnApp/obj/Debug/netcoreapp2.0/saturnApp.dll
+/home/divensi/Projects/ASPNET/saturnApp/obj/Debug/netcoreapp2.0/saturnApp.pdb

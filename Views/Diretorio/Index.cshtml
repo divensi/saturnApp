@@ -10,49 +10,99 @@
 
 <h2>Index</h2>
 
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNovoDiretorio">
+  Novo Diretorio
+</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNovoArquivo">
+  Novo Arquivo
+</button>
+
 <p>
     <a asp-action="Create" asp-route-id="@currentDir.Id">Novo Diretorio</a>  |
-    <a asp-controller="Arquivo" asp-action="Create" asp-route-id="@currentDir.Id">Novo Arquivo</a>  |
-    @if (currentDir.PaiId != null) {    
-        <a asp-action="Index" asp-route-id="@currentDir.PaiId">Pai</a>
-    } else {
-        <a aria-disabled="true">Pai</a>        
-    }
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in diretorios) {
-            <tr>
-                <td>
-                    <a asp-action="Index" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Nome)</a>
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
-        }
+    <a asp-controller="Arquivo" asp-action="Create" asp-route-id="@currentDir.Id">Novo Arquivo</a>
 
-        @foreach (var item in arquivos) {
-            <tr>
-                <td>
-                    <a asp-controller="Arquivo" asp-action="Download" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Nome)</a>
-                </td>
-                <td>
-                    <a asp-controller="Arquivo" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-controller="Arquivo" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-controller="Arquivo" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+</p>
+
+<div class="row">
+    <!-- IR PARA O PUAI -->
+    @if (currentDir.PaiId != null) {    
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+            <div class="card text-center">
+                <a asp-action="Index" asp-route-id="@currentDir.PaiId">
+                    <img class="card-img-top icon" src="~/icons/upper-folder.svg" alt="Card image cap">
+                    <div class="card-body nome">..</div>
+                </a>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-4">
+                            <a class="text-muted"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-4">                        
+                            <a class="text-muted"><i class="fa fa-search" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-4">                                                
+                            <a class="text-muted"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    <!-- DIRETORIOS -->
+    @foreach (var item in diretorios) {
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+            <div class="card text-center">
+                <a asp-action="Index" asp-route-id="@item.Id">
+                    <img class="card-img-top icon" src="~/icons/folder.svg" alt="Card image cap">
+                    <div class="card-body nome">@Html.DisplayFor(modelItem => item.Nome)
+                    </div>
+                </a>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-4">
+                            <a class="text-muted" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-4">                        
+                            <a class="text-muted" asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-search" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-4">                                                
+                            <a class="text-muted" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- ARQUIVOS -->
+    @foreach (var item in arquivos) {
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+            <div class="card text-center">
+                <a asp-controller="Arquivo" asp-action="Download" asp-route-id="@item.Id">
+                    <img class="card-img-top icon" src="~/icons/file.svg" alt="Card image cap">
+                    <div class="card-body nome">@Html.DisplayFor(modelItem => item.Nome)</div>
+                </a>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-4">
+                            <a asp-controller="Arquivo" class="text-muted" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-4">                        
+                            <a asp-controller="Arquivo" class="text-muted" asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-search" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-4">                                                
+                            <a asp-controller="Arquivo" class="text-muted" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@await Html.PartialAsync("_ModalNovaPasta")
+@await Html.PartialAsync("_ModalNovoArquivo")
+
+
+
+

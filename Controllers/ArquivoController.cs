@@ -63,17 +63,28 @@ namespace saturnApp.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public async Task<IActionResult> Create(int id, List<IFormFile> arquivos) // Arquivo arquivo, 
+        public async Task<IActionResult> CreateAjax(int id) // Arquivo arquivo, 
         {
-            if (arquivos.Count == 0) {
-                return Content("Arquivo Inválido");
-            } else {
-                foreach (var arquivo in arquivos) {
+            var arquivos = Request.Form.Files;
+            long tamanhoTotal = 0;
 
-                    if (arquivo == null || arquivo.Length == 0) {
+            if (arquivos.Count == 0)
+            {
+                return Content("Arquivo Inválido");
+            }
+            else
+            {
+                foreach (var arquivo in arquivos)
+                {
+
+                    if (arquivo == null || arquivo.Length == 0)
+                    {
                         return Content("Arquivo Inválido");
-                    } else {
-                        var now = new DateTime().Ticks.ToString();
+                    }
+                    else
+                    {
+
+                        var now = DateTime.Now.Ticks.ToString();
 
                         var path = Path.Combine(Directory.GetCurrentDirectory(),
                             "wwwroot/files/", now);
@@ -83,7 +94,10 @@ namespace saturnApp.Controllers
                             await arquivo.CopyToAsync(stream);
                         }
 
+                        tamanhoTotal += arquivo.Length;
+
                         var arquivoDb = new Arquivo();
+                        arquivoDb.criacao = DateTime.Now;
                         arquivoDb.Endereco = now;
                         arquivoDb.Tipo = arquivo.ContentType;
                         arquivoDb.Nome = arquivo.FileName;
@@ -94,14 +108,22 @@ namespace saturnApp.Controllers
                         await _context.SaveChangesAsync();
                     }
                 }
-                return RedirectToAction("Index", "Diretorio", new { id = id });
+
+                string message = $"{arquivos.Count} arquivo(s) { tamanhoTotal } bytes enviados!";
+                return Json(message);
             }
         }
 
-        public async Task<IActionResult> Download(Arquivo arquivo)
+        public async Task<IActionResult> Download(int? id)
         {
-            if (arquivo == null)
+            
+            if (id == null) {
                 return Content("Arquivo Invalido");
+            }
+
+            Arquivo arquivo = await _context.Arquivo.
+                SingleOrDefaultAsync(a => a.Id == id);
+
 
             var path = Path.Combine(
                            Directory.GetCurrentDirectory(),

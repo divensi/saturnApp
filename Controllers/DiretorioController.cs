@@ -2,10 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using saturnApp.Data;
+using saturnApp.Models;
 using saturnUpload;
 
 namespace saturnApp.Controllers
@@ -13,9 +16,11 @@ namespace saturnApp.Controllers
     public class DiretorioController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<Usuario> _userManager;
 
-        public DiretorioController(ApplicationDbContext context)
+        public DiretorioController(ApplicationDbContext context, UserManager<Usuario> userManager)
         {
+            _userManager = userManager;
             _context = context;
         }
 
@@ -24,7 +29,8 @@ namespace saturnApp.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                var user = await GetCurrentUserAsync();
+                id = user.DiretorioId;
             }
 
             var diretorios = _context.Diretorio
@@ -184,5 +190,35 @@ namespace saturnApp.Controllers
         {
             return _context.Diretorio.Any(e => e.Id == id);
         }
+
+        public IEnumerable<Diretorio> GetDiretorios(int id)
+        {            
+            var diretorios =  _context.Diretorio.
+                Where(d => d.PaiId == id).ToList();
+            //var arquivos = await _context.Arquivo.
+            //    Where(d => d.PaiId == id).ToListAsync();
+
+            //string nos = JsonConvert.SerializeObject(new {diretorios, arquivos});
+
+            return diretorios;
+        }
+
+        // [HttpGet("{id}", Name = "GetTodo")]
+        // public IActionResult GetById(long id)
+        // {
+        //     var item = _context.TodoItems.FirstOrDefault(t => t.Id == id);
+        //     if (item == null)
+        //     {
+        //         return NotFound();
+        //     }
+        //     return new ObjectResult(item);
+        // }
+
+        public IActionResult Browse()
+        {
+            return View();
+        }
+        private Task<Usuario> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
+
     }
 }

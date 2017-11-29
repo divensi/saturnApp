@@ -13112,7 +13112,8 @@
       "Microsoft.AspNetCore.All >= 2.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 2.0.0",
       "Microsoft.NETCore.App >= 2.0.0",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.0"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.0",
+      "Newtonsoft.Json >= 10.0.1"
     ]
   },
   "packageFolders": {
@@ -13122,11 +13123,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/divensi/Project/ASPNET/saturnApp/saturnApp.csproj",
+      "projectUniqueName": "/home/divensi/Projects/ASPNET/saturnApp/saturnApp.csproj",
       "projectName": "saturnApp",
-      "projectPath": "/home/divensi/Project/ASPNET/saturnApp/saturnApp.csproj",
+      "projectPath": "/home/divensi/Projects/ASPNET/saturnApp/saturnApp.csproj",
       "packagesPath": "/home/divensi/.nuget/packages/",
-      "outputPath": "/home/divensi/Project/ASPNET/saturnApp/obj/",
+      "outputPath": "/home/divensi/Projects/ASPNET/saturnApp/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/opt/dotnet/sdk/NuGetFallbackFolder"
@@ -13172,6 +13173,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "2.0.0"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "10.0.1"
           }
         },
         "imports": [

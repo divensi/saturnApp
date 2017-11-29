@@ -1,3 +1,4 @@
+using System;
 using saturnApp.Models;
 
 namespace saturnUpload
@@ -9,7 +10,6 @@ namespace saturnUpload
         public long Tamanho { get; set; }
         public string Tipo { get; set; }
         public string Extensao { get; set; }
-
         public Arquivo(string Nome, Usuario Dono) : base(Nome, Dono) {}
 
         public Arquivo() : base() {}

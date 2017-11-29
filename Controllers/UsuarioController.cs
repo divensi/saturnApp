@@ -463,6 +463,7 @@ namespace saturnApp.Controllers
                 return RedirectToAction(nameof(HomeController.Index), "Home");
             }
         }
+        public Task<Usuario> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
         #endregion
     }
