@@ -9,7 +9,6 @@ using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using saturnApp.Data;
 using saturnApp.Models;
-using saturnUpload;
 
 namespace saturnApp.Controllers
 {
@@ -52,7 +51,7 @@ namespace saturnApp.Controllers
             ViewData["diretorios"] = await _context.Diretorio
                 .Where(d => d.PaiId == id).ToListAsync();
 
-            return View(await diretorios);
+            return View();
         }
 
         // GET: Diretorio/Details/5

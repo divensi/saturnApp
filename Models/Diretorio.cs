@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using saturnApp.Models;
 
-namespace saturnUpload
+namespace saturnApp.Models
 {
     public class Diretorio : No
     {

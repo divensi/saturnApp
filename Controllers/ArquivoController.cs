@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using saturnApp.Data;
-using saturnUpload;
+using saturnApp.Models;
 
 namespace saturnApp.Controllers
 {

@@ -1,7 +1,7 @@
 using System;
 using saturnApp.Models;
 
-namespace saturnUpload
+namespace saturnApp.Models
 {
     public class Arquivo : No
     {

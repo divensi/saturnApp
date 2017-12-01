@@ -15,9 +15,9 @@ namespace saturnApp.Data
         {
         }
         
-        public DbSet<saturnUpload.Diretorio> Diretorio { get; set; }
+        public DbSet<Diretorio> Diretorio { get; set; }
 
-        public DbSet<saturnUpload.Arquivo> Arquivo { get; set; }
+        public DbSet<Arquivo> Arquivo { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using saturnApp.Models;
 
-namespace saturnUpload
+namespace saturnApp.Models
 {
     public class Permissao
     {
