@@ -39,9 +39,9 @@
         <div class="row">
             @if (SignInManager.IsSignedIn(User))
             {
-                @await Html.PartialAsync("_Sidebar")
+                //@await Html.PartialAsync("_Sidebar")
 
-                <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+                <main role="main" class="col-sm-12 ml-sm-auto col-md-12 pt-3">
                     <div class="container body-content">
 
                         @RenderBody()

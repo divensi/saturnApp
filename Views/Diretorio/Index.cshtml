@@ -11,13 +11,15 @@
 
 <h2>@currentDir.Nome</h2>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNovoDiretorio">
-  Novo Diretorio
-</button>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNovoArquivo">
-  Novo Arquivo
-</button>
-<hr>
+<div class="paradinhaTop">
+    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalNovoDiretorio">
+    Novo Diretorio
+    </button>
+    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalNovoArquivo">
+    Novo Arquivo
+    </button>
+    <hr>
+</div>
 <div class="row">
     <!-- IR PARA O PAI -->
     @if (currentDir.PaiId != null) {
@@ -25,18 +27,18 @@
             <div class="card text-center">
                 <a asp-action="Index" asp-route-id="@currentDir.PaiId">
                     <img class="card-img-top icon" src="~/icons/upper-folder.svg" alt="Card image cap">
-                    <div class="card-body nome">..</div>
+                    <div class="card-body nome text-dark">..</div>
                 </a>
                 <div class="card-footer">
                     <div class="row">
                         <div class="col-4">
-                            <a class="text-muted"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            <a class="text-muted disabled"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                         </div>
                         <div class="col-4">                        
-                            <a class="text-muted"><i class="fa fa-search" aria-hidden="true"></i></a>
+                            <a class="text-muted disabled"><i class="fa fa-search" aria-hidden="true"></i></a>
                         </div>
                         <div class="col-4">                                                
-                            <a class="text-muted"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                            <a class="text-muted disabled"><i class="fa fa-trash" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
@@ -49,19 +51,19 @@
             <div class="card text-center">
                 <a asp-action="Index" asp-route-id="@item.Id">
                     <img class="card-img-top icon" src="~/icons/folder.svg" alt="Card image cap">
-                    <div class="card-body nome">@Html.DisplayFor(modelItem => item.Nome)
+                    <div class="card-body nome text-dark">@Html.DisplayFor(modelItem => item.Nome)
                     </div>
                 </a>
                 <div class="card-footer">
                     <div class="row">
                         <div class="col-4">
-                            <a class="text-muted" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            <a class="text-dark" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                         </div>
                         <div class="col-4">                        
-                            <a class="text-muted" asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-search" aria-hidden="true"></i></a>
+                            <a class="text-dark" asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-search" aria-hidden="true"></i></a>
                         </div>
                         <div class="col-4">                                                
-                            <a class="text-muted" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                            <a class="text-dark" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
@@ -75,18 +77,18 @@
             <div class="card text-center">
                 <a asp-controller="Arquivo" asp-action="Download" asp-route-id="@item.Id">
                     <img class="card-img-top icon" src="~/icons/file.svg" alt="Card image cap">
-                    <div class="card-body nome">@Html.DisplayFor(modelItem => item.Nome)</div>
+                    <div class="card-body nome text-dark">@Html.DisplayFor(modelItem => item.Nome)</div>
                 </a>
                 <div class="card-footer">
                     <div class="row">
                         <div class="col-4">
-                            <a asp-controller="Arquivo" class="text-muted" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            <a asp-controller="Arquivo" class="text-dark" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                         </div>
                         <div class="col-4">                        
-                            <a asp-controller="Arquivo" class="text-muted" asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-search" aria-hidden="true"></i></a>
+                            <a asp-controller="Arquivo" class="text-dark" asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-search" aria-hidden="true"></i></a>
                         </div>
                         <div class="col-4">                                                
-                            <a asp-controller="Arquivo" class="text-muted" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                            <a asp-controller="Arquivo" class="text-dark" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
@@ -116,7 +118,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <input value="Criar" class="btn btn-primary" type="submit">
+                    <input value="Criar" class="btn btn-warning" type="submit">
                 </div>
             </form>
         </div>
@@ -144,7 +146,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <input id="upload" class="btn btn-primary" value="Enviar Arquivos Selecionados" type="button">
+                    <input id="upload" class="btn btn-warning" value="Enviar Arquivos Selecionados" type="button">
                 </div>
             </form>
         </div>

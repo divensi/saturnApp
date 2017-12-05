@@ -1,0 +1,12 @@
+c:\Users\Felipe Divensi\Documents\GitHub\saturnApp\bin\BPC\Debug\netcoreapp2.0\app.db
+c:\Users\Felipe Divensi\Documents\GitHub\saturnApp\bin\BPC\Debug\netcoreapp2.0\saturnApp.deps.json
+c:\Users\Felipe Divensi\Documents\GitHub\saturnApp\bin\BPC\Debug\netcoreapp2.0\saturnApp.runtimeconfig.json
+c:\Users\Felipe Divensi\Documents\GitHub\saturnApp\bin\BPC\Debug\netcoreapp2.0\saturnApp.runtimeconfig.dev.json
+c:\Users\Felipe Divensi\Documents\GitHub\saturnApp\bin\BPC\Debug\netcoreapp2.0\saturnApp.dll
+c:\Users\Felipe Divensi\Documents\GitHub\saturnApp\bin\BPC\Debug\netcoreapp2.0\saturnApp.pdb
+c:\Users\Felipe Divensi\Documents\GitHub\saturnApp\obj\BPC\Debug\netcoreapp2.0\saturnApp.csproj.CoreCompileInputs.cache
+c:\Users\Felipe Divensi\Documents\GitHub\saturnApp\obj\BPC\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+c:\Users\Felipe Divensi\Documents\GitHub\saturnApp\obj\BPC\Debug\netcoreapp2.0\saturnApp.AssemblyInfoInputs.cache
+c:\Users\Felipe Divensi\Documents\GitHub\saturnApp\obj\BPC\Debug\netcoreapp2.0\saturnApp.AssemblyInfo.cs
+c:\Users\Felipe Divensi\Documents\GitHub\saturnApp\obj\BPC\Debug\netcoreapp2.0\saturnApp.dll
+c:\Users\Felipe Divensi\Documents\GitHub\saturnApp\obj\BPC\Debug\netcoreapp2.0\saturnApp.pdb
