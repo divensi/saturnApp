@@ -6,7 +6,7 @@
 
 <h2>Detalhes</h2>
 
-<div>
+<div class="">
     <h4>Arquivo</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -15,12 +15,6 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Endereco)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Hash)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Hash)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Tamanho)
@@ -35,23 +29,14 @@
             @Html.DisplayFor(model => model.Tipo)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Extensao)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Extensao)
-        </dd>
-        <dt>
             @Html.DisplayNameFor(model => model.Nome)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Nome)
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Pai)
-        </dt>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
-    <a asp-action="Index">Voltar</a>
+<div class="btn-group">
+    <a asp-controller="Diretorio" asp-route-id="@Model.PaiId" asp-action="Index" class="btn btn-secondary">Voltar</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
 </div>

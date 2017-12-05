@@ -116,14 +116,12 @@ namespace saturnApp.Controllers
 
         public async Task<IActionResult> Download(int? id)
         {
-            
             if (id == null) {
                 return Content("Arquivo Invalido");
             }
 
             Arquivo arquivo = await _context.Arquivo.
                 SingleOrDefaultAsync(a => a.Id == id);
-
 
             var path = Path.Combine(
                            Directory.GetCurrentDirectory(),
@@ -135,7 +133,7 @@ namespace saturnApp.Controllers
                 await stream.CopyToAsync(memory);
             }
             memory.Position = 0;
-            return File(memory, arquivo.Tipo, Path.GetFileName(path));
+            return File(memory, arquivo.Tipo, arquivo.Nome);
         }
 
         // GET: Arquivo/Edit/5
@@ -171,7 +169,13 @@ namespace saturnApp.Controllers
             {
                 try
                 {
-                    _context.Update(arquivo);
+                    var arquivoOld = await _context.Arquivo
+                        .Include(a => a.Pai)
+                        .SingleOrDefaultAsync(m => m.Id == id);
+
+                    arquivoOld.Nome = arquivo.Nome;
+                    _context.Update(arquivoOld);
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -185,10 +189,9 @@ namespace saturnApp.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Diretorio", new { id = arquivo.PaiId });
             }
-            ViewData["PaiId"] = new SelectList(_context.Set<No>(), "Id", "Discriminator", arquivo.PaiId);
-            return View(arquivo);
+            return RedirectToAction("Index", "Diretorio", new { id = arquivo.PaiId });
         }
 
         // GET: Arquivo/Delete/5

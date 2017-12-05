@@ -10,31 +10,6 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Endereco" class="control-label"></label>
-                <input asp-for="Endereco" class="form-control" />
-                <span asp-validation-for="Endereco" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Hash" class="control-label"></label>
-                <input asp-for="Hash" class="form-control" />
-                <span asp-validation-for="Hash" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Tamanho" class="control-label"></label>
-                <input asp-for="Tamanho" class="form-control" />
-                <span asp-validation-for="Tamanho" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Tipo" class="control-label"></label>
-                <input asp-for="Tipo" class="form-control" />
-                <span asp-validation-for="Tipo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Extensao" class="control-label"></label>
-                <input asp-for="Extensao" class="form-control" />
-                <span asp-validation-for="Extensao" class="text-danger"></span>
-            </div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Nome" class="control-label"></label>
@@ -43,14 +18,15 @@
             </div>
             <input type="hidden" asp-for="PaiId" />
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <div class="btn-group">
+                    <a asp-controller="Diretorio" asp-route-id="@Model.PaiId" asp-action="Index" class="btn btn-secondary">Voltar</a>
+                    <input type="submit" value="Salvar" class="btn btn-warning" />
+                </div>
+
+                
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Voltar</a>
 </div>
 
 @section Scripts {

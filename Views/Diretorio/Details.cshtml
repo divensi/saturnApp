@@ -1,13 +1,12 @@
 @model saturnApp.Models.Diretorio
 
 @{
-    ViewData["Title"] = @model.Nome;
+    ViewData["Title"] = "Detalhes";
 }
 
-<h2>Detalhes de @model.Nome</h2>
+<h2>Detalhes de @Html.DisplayFor(model => model.Nome)</h2>
 
-<div>
-    <h4>Diretorio</h4>
+<div class="text-center">
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -16,12 +15,9 @@
         <dd>
             @Html.DisplayFor(model => model.Nome)
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Pai)
-        </dt>
     </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a>
-    <a asp-action="Index">Voltar</a>
+    <div class="btn-group">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-secondary">Voltar</a>
+        <input asp-action="Index" asp-route-id="@Model.PaiId" type="submit" value="Apagar" class="btn btn-warning" />
+    </div>
 </div>
