@@ -4,9 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h2>Create</h2>
-
-<h4>Arquivo</h4>
+<h4>Criar Arquivo</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,7 +12,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             
             <div>
-                <p>Selecionee:</p>
+                <p>Selecione:</p>
                 <input type="file" name="arquivos" id="arquivos"/>
             </div>
             <input type="hidden" value="@ViewBag.PaiId" nome="id" />
@@ -33,34 +31,5 @@
 
 <div>
     <a asp-controller="Diretorio" asp-action="Index" 
-        asp-route-id="@ViewBag.PaiId">Back to List</a>
+        asp-route-id="@ViewBag.PaiId">Voltar</a>
 </div>
-
-@section Scripts {
-
-    <script>
-        $(document).ready(function () {
-            $("#upload").click(function (evt) {
-                var fileUpload = $("#arquivos").get(0);
-                var files = fileUpload.files;
-                var data = new FormData();
-                for (var i = 0; i < files.length ; i++) {
-                    data.append(files[i].name, files[i]);
-                }
-                $.ajax({
-                    type: "POST",
-                    url: "/Arquivo/CreateAjax/@ViewBag.PaiId",
-                    contentType: false,
-                    processData: false,
-                    data: data,
-                    success: function (message) {
-                        alert(message);
-                    },
-                    error: function () {
-                        alert("There was error uploading files!");
-                    }
-                });
-            });
-        });
-    </script>
-}

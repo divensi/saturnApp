@@ -218,7 +218,8 @@ namespace saturnApp.Controllers
             var arquivo = await _context.Arquivo.SingleOrDefaultAsync(m => m.Id == id);
             _context.Arquivo.Remove(arquivo);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "Diretorio", new { id = arquivo.PaiId });
+            //return RedirectToAction(nameof(Index));
         }
 
         private bool ArquivoExists(long id)

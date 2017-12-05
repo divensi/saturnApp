@@ -13118,7 +13118,7 @@
   },
   "packageFolders": {
     "/home/divensi/.nuget/packages/": {},
-    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "/opt/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
@@ -13130,7 +13130,7 @@
       "outputPath": "/home/divensi/Project/ASPNET/saturnApp/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        "/opt/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "/home/divensi/.nuget/NuGet/NuGet.Config"

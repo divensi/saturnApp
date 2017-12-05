@@ -106,5 +106,28 @@ h1 {
 }
 .nome {
   white-space:nowrap;
+  text-overflow: ellipsis;
   overflow: hidden;
+  text-decoration: none;
+}
+.nome:hover {
+  text-decoration: none;
+}
+
+.card {
+  margin: 10px 0px;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 0 4px rgba(0,0,0,0.16) inset;
+  text-decoration: none;
+}
+
+a.nome {
+  text-decoration: none;
+
+}
+a:hover {
+  text-decoration: none;
 }

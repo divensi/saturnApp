@@ -1,10 +1,10 @@
 @model saturnApp.Models.Arquivo
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes";
 }
 
-<h2>Details</h2>
+<h2>Detalhes</h2>
 
 <div>
     <h4>Arquivo</h4>
@@ -49,12 +49,9 @@
         <dt>
             @Html.DisplayNameFor(model => model.Pai)
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Pai.Discriminator)
-        </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+    <a asp-action="Index">Voltar</a>
 </div>

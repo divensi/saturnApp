@@ -9,7 +9,17 @@
                 </button>
             </div>
             <div class="modal-body">
-                ...
+                <form method="post" enctype="multipart/form-data" action="/Arquivo/Create/@idPai">
+                    <div>
+                        <p>Selecionee:</p>
+                        <input name="arquivos" id="arquivos" type="file">
+                    </div>
+                    <input value="@idPai" nome="id" type="hidden">
+                    <div>
+                        <input id="upload" value="Upload Selected Files" type="button">
+                    </div>
+
+                </form>            
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -3,7 +3,7 @@
     "additionalProbingPaths": [
       "/home/divensi/.dotnet/store/|arch|/|tfm|",
       "/home/divensi/.nuget/packages",
-      "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+      "/opt/dotnet/sdk/NuGetFallbackFolder"
     ]
   }
 }

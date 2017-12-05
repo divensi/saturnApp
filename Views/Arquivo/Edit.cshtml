@@ -1,12 +1,10 @@
 @model saturnApp.Models.Arquivo
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar";
 }
 
-<h2>Edit</h2>
-
-<h4>Arquivo</h4>
+<h4>Editar Arquivo</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -43,11 +41,7 @@
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="PaiId" class="control-label"></label>
-                <select asp-for="PaiId" class="form-control" asp-items="ViewBag.PaiId"></select>
-                <span asp-validation-for="PaiId" class="text-danger"></span>
-            </div>
+            <input type="hidden" asp-for="PaiId" />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
@@ -56,7 +50,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar</a>
 </div>
 
 @section Scripts {
